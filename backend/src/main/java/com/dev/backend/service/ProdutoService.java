@@ -21,11 +21,30 @@ public class ProdutoService {
 		
 	}
 	
-	public Produto insert(Produto produto) {
+	public Produto inserir(Produto produto) {
 		produto.setDataCriacao(new Date());
 	   Produto produtoNovo = produtoRepository.saveAndFlush(produto);
 	   return produtoNovo;
 		
 	}
+	
+	public Produto alterar(Produto objeto) {
+		
+		objeto.setDataAtualizacao(new Date());
+		Produto produto = produtoRepository.saveAndFlush(objeto);
+		return produto;
+		
+		
+		
+	}
+	
+	public void deletar(Long id) {
+		
+		Produto objeto = produtoRepository.findById(id).get();
+		produtoRepository.delete(objeto);
+		
+		
+	}
+	
 
 }
