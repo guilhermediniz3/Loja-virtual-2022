@@ -24,6 +24,8 @@ public class CategoriaController {
 	@GetMapping("/")
 	public List<Categoria> buscarTodos(){
 		
+		
+		
 		return categoriaService.buscarTodos();
 		
 	}
