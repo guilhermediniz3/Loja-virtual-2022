@@ -13,35 +13,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dev.backend.entity.Produto;
-import com.dev.backend.service.ProdutoService;
+import com.dev.backend.entity.ProdutoImagens;
+import com.dev.backend.service.ProdutoImagensService;
 
 @RestController
-@RequestMapping("/api/produto")
-public class ProdutoController {
+@RequestMapping("produtoimagens")
+public class ProdutoImagensController {
 	@Autowired
-	ProdutoService produtoService;
+	ProdutoImagensService produtoImagensService;
 	@GetMapping("/")
-	public List<Produto> buscarTodos(){
-	return produtoService.buscarTodos();
-}
-	
+	public List<ProdutoImagens> buscarTodos(){
+		
+		return produtoImagensService.buscarTodos();
+		
+		
+	}
 	@PostMapping("/")
-	public Produto inserir( @RequestBody Produto produto) {
-		return produtoService.inserir(produto);
-				
-	
+	public ProdutoImagens inserir(@RequestBody ProdutoImagens objeto) {
+		
+		return produtoImagensService.inserir(objeto);
+		
+		
 	}
 	@PutMapping("/")
-	public Produto alterar(@RequestBody Produto objeto) {
+	public ProdutoImagens alterar(@RequestBody ProdutoImagens objeto) {
 		
-		return produtoService.alterar(objeto);
+		return produtoImagensService.alterar(objeto);
 		
 	}
+	
 	@DeleteMapping("/")
-	public ResponseEntity<Produto> deletar(@PathVariable Long id) {
-		produtoService.deletar(id);
+	public ResponseEntity<ProdutoImagens>	deletar(@PathVariable Long id){
+		
+		produtoImagensService.deletar(id);
 		return ResponseEntity.ok().build();
+		
 	}
 
 }
