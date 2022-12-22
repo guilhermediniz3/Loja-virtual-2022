@@ -20,7 +20,7 @@ public class Cidade {
 	@Id
   @GeneratedValue(strategy = GenerationType.AUTO)
 	public Long id;
-	public String name;
+	public String nome;
 	@ManyToOne
 	@JoinColumn(name="idEstado")
 	private Estado estado;

@@ -19,7 +19,7 @@ import com.dev.backend.entity.ProdutoImagens;
 import com.dev.backend.service.ProdutoImagensService;
 
 @RestController
-@RequestMapping("produtoimagens")
+@RequestMapping("/api/produtoImagens")
 public class ProdutoImagensController {
 	@Autowired
 	ProdutoImagensService produtoImagensService;
@@ -28,7 +28,7 @@ public class ProdutoImagensController {
 		
 		return produtoImagensService.buscarTodos();
 		
-		
+			
 	}
 	@PostMapping("/")
 	public ProdutoImagens inserir( @RequestParam("idProduto")  Long idProduto ,@RequestParam("file")  MultipartFile file) {
@@ -44,8 +44,8 @@ public class ProdutoImagensController {
 		
 	}
 	
-	@DeleteMapping("/")
-	public ResponseEntity<ProdutoImagens>	deletar(@PathVariable Long id){
+	 @DeleteMapping("/{id}")
+	public ResponseEntity<Void>	deletar(@PathVariable Long id){
 		
 		produtoImagensService.deletar(id);
 		return ResponseEntity.ok().build();

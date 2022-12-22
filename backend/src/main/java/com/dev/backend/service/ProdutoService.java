@@ -38,7 +38,7 @@ public class ProdutoService {
 		
 	}
 	
-	public void deletar(Long id) {
+	public void excluir(Long id) {
 		
 		Produto objeto = produtoRepository.findById(id).get();
 		produtoRepository.delete(objeto);
